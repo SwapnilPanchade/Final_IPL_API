@@ -25,4 +25,8 @@ public class PlayerService {
     public List<Player> getAllPlayers() {
         return playerDao.findAll();
     }
+
+    public String createPlayer(List<Player> players) {
+        return playerDao.createPlayer(players);
+    }
 }

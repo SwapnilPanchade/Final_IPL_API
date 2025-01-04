@@ -31,4 +31,14 @@ public class PlayerDao {
         Criteria criteria = session.createCriteria(Player.class);
 		return criteria.list();
     }
+
+    public String createPlayer(List<Player> players) {
+        int cnt=0;
+        Session session = sessionFactory.openSession();
+        for(Player player:players){
+            session.saveOrUpdate(player);
+            cnt++;
+        }
+        return cnt + " players added successfully in the database";
+    }
 }

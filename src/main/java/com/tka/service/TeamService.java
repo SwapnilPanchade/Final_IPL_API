@@ -26,4 +26,8 @@ public class TeamService {
 	public List<Team> getAllTeams() {
 		return teamDao.findAll();
 	}
+
+	public Team updateTeam(int id, Team team) {
+		return teamDao.updateTeam(id , team);
+	}
 }

@@ -1,6 +1,7 @@
 package com.tka.dao;
 import java.util.List;
 
+import com.tka.entity.Player;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -30,5 +31,21 @@ public class TeamDao {
         Session session = sessionFactory.openSession();
         Criteria criteria = session.createCriteria(Team.class);
 		return criteria.list();
+    }
+
+    public Team updateTeam(int id, Team team) {
+        Session session = sessionFactory.openSession();
+        try {
+            session.beginTransaction();
+            Team team1 = session.get(Team.class, id);
+            team1.setName(team.getName());
+            team1.setPlayers(team.getPlayers());
+            session.saveOrUpdate(team1);
+            session.getTransaction().commit();
+
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
+        }
+        return team;
     }
 }
