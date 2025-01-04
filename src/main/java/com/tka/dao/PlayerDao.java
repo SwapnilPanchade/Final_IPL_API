@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import com.tka.entity.Player;
 
+import javax.transaction.Transactional;
+
 @Repository
 public class PlayerDao {
 
@@ -32,6 +34,7 @@ public class PlayerDao {
 		return criteria.list();
     }
 
+    @Transactional
     public String createPlayer(List<Player> players) {
         int cnt=0;
         Session session = sessionFactory.openSession();

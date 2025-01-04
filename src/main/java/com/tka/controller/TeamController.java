@@ -20,6 +20,10 @@ public class TeamController {
         return teamService.createTeam(team);
     }
 
+    @PostMapping("/add")
+    public String addTeams(@RequestBody List<Team> teamList){return teamService.addTeams(teamList);
+    }
+
     @GetMapping("/{id}")
     public Team getTeamById(@PathVariable Long id) {
         return teamService.getTeamById(id);

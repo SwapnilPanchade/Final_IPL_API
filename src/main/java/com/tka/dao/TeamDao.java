@@ -58,4 +58,14 @@ public class TeamDao {
         session.getTransaction().commit();
         return team;
     }
+
+    public String addTeams(List<Team> teamList) {
+        int cnt = 0;
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        for(Team team:teamList){ session.saveOrUpdate(team);
+        cnt ++;}
+        session.getTransaction().commit();
+        return  cnt + " teams with their provided data added successfully";
+    }
 }

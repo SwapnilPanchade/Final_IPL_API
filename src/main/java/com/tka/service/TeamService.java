@@ -34,4 +34,8 @@ public class TeamService {
 	public Team deleteTeam(int id) {
 		return teamDao.deleteTeam(id);
 	}
+
+	public String addTeams(List<Team> teamList) {
+		return teamDao.addTeams(teamList);
+	}
 }
