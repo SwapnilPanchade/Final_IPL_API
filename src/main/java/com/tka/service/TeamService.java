@@ -30,4 +30,8 @@ public class TeamService {
 	public Team updateTeam(int id, Team team) {
 		return teamDao.updateTeam(id , team);
 	}
+
+	public Team deleteTeam(int id) {
+		return teamDao.deleteTeam(id);
+	}
 }

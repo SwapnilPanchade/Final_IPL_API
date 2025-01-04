@@ -48,4 +48,14 @@ public class TeamDao {
         }
         return team;
     }
+
+
+    public Team deleteTeam(int id) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        Team team = session.get(Team.class, id);
+        session.delete(team);
+        session.getTransaction().commit();
+        return team;
+    }
 }
