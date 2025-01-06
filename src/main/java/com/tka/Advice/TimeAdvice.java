@@ -18,7 +18,6 @@ public class TimeAdvice {
 
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
         String format1 = format.format(new Date());
-
         System.err.println("Executed at :"+format1);
     }
 }
